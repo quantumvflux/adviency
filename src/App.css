@@ -1,0 +1,95 @@
+/* IMPORTS  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap");
+
+:root {
+  --primary: #9c89b8;
+  --secondary: #f0a6ca;
+  --thirdtiary: #efc3e6;
+  --cuatertiary: #f0e6ef;
+  --quintertiary: #b8bedd;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--primary);
+  font-family: "Poppins", sans-serif;
+}
+
+.app-container {
+  background-color: var(--thirdtiary);
+  display: grid;
+  place-items: center;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+h1 {
+  margin: 25px;
+  text-align: center;
+}
+
+ul {
+  margin-bottom: 15px;
+}
+
+.gift-container {
+  list-style: none;
+  width: 350px;
+  display: flex;
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gift-container > button {
+  border: none;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin-bottom: 25px;
+}
+
+form > input {
+  height: 40px;
+  font-family: inherit;
+  background-color: var(--secondary);
+  border: none;
+  border-radius: 10px 10px 0 0;
+  padding: 5px;
+}
+
+form > input:focus {
+  outline: none;
+}
+
+form > button {
+  border: none;
+  border-radius: 0 0 10px 10px;
+  height: 30px;
+  background-color: var(--primary);
+}
+
+form > button:hover {
+  cursor: pointer;
+  background-color: var(--cuatertiary);
+  transition: 0.1s ease-in-out;
+}
+
+form > button:focus {
+  outline: none;
+}
