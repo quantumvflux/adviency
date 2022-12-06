@@ -51,6 +51,10 @@ export const App = () => {
     setGifts(filteredGiftList);
   };
 
+  const deleteAll = () => {
+    setGifts([]);
+  };
+
   return (
     <div className="app-container">
       <h1>giftify</h1>
@@ -62,6 +66,9 @@ export const App = () => {
           deleteGift={deleteGift}
         />
       </ul>
+      <button className="delete-all-btn" onClick={deleteAll}>
+        Borrar todo
+      </button>
     </div>
   );
 };

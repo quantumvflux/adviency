@@ -93,3 +93,18 @@ form > button:hover {
 form > button:focus {
   outline: none;
 }
+
+.delete-all-btn {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 350px;
+  margin-bottom: 15px;
+}
+
+.delete-all-btn:hover {
+  background-color: var(--cuatertiary);
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
