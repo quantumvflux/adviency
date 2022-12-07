@@ -38,12 +38,16 @@ export const App = () => {
   };
 
   const addGift = (title: string) => {
+    let condition = gifts.some((gift) => gift.title === title);
     let newGift = {
       id: gifts.length,
       title,
       delivered: false,
     };
-    setGifts([...gifts, newGift]);
+
+    condition
+      ? alert("Este regalo ya existe! agrega otro")
+      : setGifts([...gifts, newGift]);
   };
 
   const deleteGift = (giftId: number) => {
@@ -57,8 +61,8 @@ export const App = () => {
 
   return (
     <div className="app-container">
-      <h1>giftify</h1>
-      <AddGiftForm addGift={addGift} />
+      <h1>Giftify</h1>
+      <AddGiftForm gifts={gifts} addGift={addGift} />
       <ul>
         <GiftList
           gifts={gifts}

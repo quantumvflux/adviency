@@ -2,9 +2,17 @@ import { useState } from "react";
 
 interface Props {
   addGift: AddGift;
+  gifts: Gift[];
 }
+
 export const AddGiftForm: React.FC<Props> = ({ addGift }) => {
   const [title, setTitle] = useState("");
+
+  const handleTitle = (title: string) => {
+    let condition = title === "";
+    condition ? alert("No se puede agregar un regalo vacio") : addGift(title);
+    setTitle("");
+  };
 
   return (
     <form>
@@ -17,8 +25,7 @@ export const AddGiftForm: React.FC<Props> = ({ addGift }) => {
       <button
         onClick={(e) => {
           e.preventDefault();
-          addGift(title);
-          setTitle("");
+          handleTitle(title);
         }}
       >
         Agregar
