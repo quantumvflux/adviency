@@ -17,10 +17,12 @@ export const GiftListItem: React.FC<Props> = ({
       >
         <input
           type="checkbox"
-          checked={gift.delivered}
+          // checked={gift.delivered}
           onClick={() => toggleDelivered(gift)}
         />{" "}
-        {gift.title}
+        <div className="gift" key={gift.id}>
+          {gift.title} <span>{gift.quantity}</span>
+        </div>
       </label>
       <button
         onClick={() => {

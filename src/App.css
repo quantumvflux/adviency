@@ -41,13 +41,29 @@ ul {
   margin-bottom: 15px;
 }
 
+label {
+  width: 100%;
+  display: flex;
+}
+
 .gift-container {
   list-style: none;
   width: 350px;
   display: flex;
+  flex-direction: column;
   margin: 5px 0;
+  justify-content: space-between;
+}
+
+.gift {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.gift > span {
+  margin-right: 5px;
 }
 
 .gift-container > button {
@@ -64,17 +80,31 @@ form {
   margin-bottom: 25px;
 }
 
-form > input {
+form > div {
+  display: flex;
+  max-width: 100%;
+}
+
+form > div > input[type="text"] {
   height: 40px;
   font-family: inherit;
   background-color: var(--secondary);
   border: none;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 0 0 0;
   padding: 5px;
+  width: 100%;
 }
 
-form > input:focus {
+form > div > input[type="text"]:focus {
   outline: none;
+}
+
+form > div > input[type="number"] {
+  width: 60px;
+  border: none;
+  border-radius: 0 10px 0 0;
+  background-color: #f59fc9;
+  font-family: inherit;
 }
 
 form > button {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { AddGiftForm } from "./components/AddGiftForm";
 import { GiftList } from "./components/GiftList";
@@ -7,22 +7,34 @@ const initialGifts: Gift[] = [
   {
     id: 0,
     title: "GTX 1650 TI",
+    quantity: 1,
     delivered: false,
   },
   {
     id: 1,
     title: "Ibanez AZ2204",
+    quantity: 2,
     delivered: false,
   },
   {
     id: 2,
     title: "Gabinete blanco",
+    quantity: 2,
     delivered: true,
   },
 ];
 
 export const App = () => {
   const [gifts, setGifts] = useState(initialGifts);
+
+  useEffect(() => {
+    let data = localStorage.getItem("gifts");
+    data ? setGifts(JSON.parse(data)) : setGifts(initialGifts);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("gifts", JSON.stringify(gifts));
+  }, [gifts]);
 
   const toggleDelivered = (selectedGift: Gift) => {
     const newGiftList = gifts.map((gift) => {
@@ -37,11 +49,12 @@ export const App = () => {
     setGifts(newGiftList);
   };
 
-  const addGift = (title: string) => {
+  const addGift = (title: string, quantity: number) => {
     let condition = gifts.some((gift) => gift.title === title);
     let newGift = {
       id: gifts.length,
       title,
+      quantity,
       delivered: false,
     };
 

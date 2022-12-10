@@ -15,12 +15,13 @@ export const GiftList: React.FC<Props> = ({
     <ul>
       {gifts.length > 0 ? (
         gifts.map((gift) => (
-          <GiftListItem
-            key={gift.id}
-            gift={gift}
-            toggleDelivered={toggleDelivered}
-            deleteGift={deleteGift}
-          />
+          <div key={gift.id}>
+            <GiftListItem
+              gift={gift}
+              toggleDelivered={toggleDelivered}
+              deleteGift={deleteGift}
+            />
+          </div>
         ))
       ) : (
         <p>Todavía no hay ningun regalo, rufián</p>
